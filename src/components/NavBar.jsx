@@ -1,4 +1,5 @@
 import React from 'react';
+import CartWidget from './CartWidget'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,14 +8,14 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function CollapsibleExample() {
   return (
     <Navbar
-      className="w-100"
-      collapseOnSelect
-      expand="lg"
-      bg="dark"
-      variant="dark"
+    className="w-100"
+    collapseOnSelect
+    expand="lg"
+    bg="dark"
+    variant="dark"
     >
       <Container>
-        <Navbar.Brand>Esquema Deporte</Navbar.Brand>
+        <Navbar.Brand>Equinox</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -27,10 +28,12 @@ function CollapsibleExample() {
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Ropa para niños</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="numeroHarcodeado">Oportunidades</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Perfil</Nav.Link>
+            <Nav.Link className= 'perfiles' href="#deets">Perfiles</Nav.Link>
           </Nav>
+    <CartWidget />
         </Navbar.Collapse>
       </Container>
     </Navbar>

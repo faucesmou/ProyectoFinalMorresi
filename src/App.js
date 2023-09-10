@@ -1,6 +1,7 @@
 
 import './App.css';
 import CollapsibleExample from './components/NavBar'
+import ItemListContainer from './components/ItemListContainer'
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
       <header >
       <CollapsibleExample />
       </header>
-      <p>hola pepe</p>
+      <ItemListContainer text= 'Hola a todos! bienvenidos!' />
+      
     </div>
 
 
