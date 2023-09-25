@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemList from "./ItemList";
 
-function ItemListContainer(prop) {
+function ItemDetailContainer(prop) {
     const mensaje = prop.text
   return (
    <div>
@@ -12,4 +12,4 @@ function ItemListContainer(prop) {
   );
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;
