@@ -5,12 +5,12 @@ import React, { useContext } from 'react';
 
 function CartWidget() {
   const { cartState } = useContext(CartContext);
-  // personalizar el contenido del carrito aquí
+
   return (
     <div className="cart-widget">
          <img src={carroDeCompra2} alt="Cart Icon" />
         {/* <FaShoppingCart /> */}
-        <span className="cart-notification">{cartState.cantidadProductos}</span>
+        <span className="cart-notification">{cartState}</span>
       {/* <i className="fa fa-shopping-cart"></i> */}
     </div>
   );
