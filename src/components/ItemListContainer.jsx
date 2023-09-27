@@ -1,14 +1,23 @@
 import React from 'react';
-import ItemList from "./ItemList";
+import Item2 from "./Item2";
+import { Link } from "react-router-dom";
 
-function ItemListContainer(prop) {
-    const mensaje = prop.text
+function ItemListContainer ({ /* mensaje, */ products })  {
+    /* const mensaje = prop.text */
   return (
-   <div>
-       <p>{mensaje}</p>
-       <ItemList/>
-       
-   </div>
+  /*  <div>
+       <p>{mensaje}</p>       
+   </div> */
+    <div className="item-list-container">
+    {products.map((product) => (
+       <Link
+       to={`/product/${product.id}`}
+       className="text-decoration-none"
+     >
+      <Item2 key={product.id} product={product} />
+      </Link>
+    ))}
+  </div>
   );
 }
 

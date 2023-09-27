@@ -78,27 +78,96 @@
     justify-content: center; */
   
 }
-/* Item2  */
+
+
+/* Item2 */
 .card {
-  width: 300px; /* Ajusta el ancho según tus necesidades */
-  height: 400px; /* Ajusta la altura según tus necesidades */
+  width: 100%; /* Ancho al 100% para que sea responsive */
+  max-width: 300px; /* Ancho máximo de 300px */
+  height: auto; /* La altura se ajusta automáticamente según el contenido */
 }
-.product-box_image img {
-  width: 100%;
-  height: auto;
+
+.card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: inherit; /* Hereda el color del texto */
+}
+
+.card-img-top img {
+  max-width: 100%; /* La imagen se ajusta al ancho de su contenedor */
+  height: auto; /* La altura se ajusta automáticamente */
   object-fit: cover;
   margin: 3px;
 }
-.col-md-2 {
-  margin-right: 5px; /* Puedes ajustar el valor según tus necesidades */
+
+.card-body {
+  padding: 1rem;
 }
-/* Eliminar el margen derecho de la última tarjeta en una fila */
-.col-md-2:last-child {
-  margin-right: 0;
-}
+
 .card-title {
-  font-size: medium;
+  font-size: 1.25rem; /* Tamaño del título */
+  margin-bottom: 0.5rem; /* Espacio inferior entre título y precio */
 }
-.precio{
-  font-size: small;
+
+.precio {
+  font-size: 0.875rem; /* Tamaño del precio */
+}
+
+
+/* ItemListContainer */
+
+/* CSS */
+.item-list-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 tarjetas por fila */
+  gap: 15px; /* Espacio entre tarjetas */
+  margin: 25px;
+}
+
+@media (max-width: 768px) {
+  /* Cambiar el diseño en pantallas más pequeñas */
+  .item-list-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila en pantallas pequeñas */
+    margin: 25px;
+  }
+}
+
+/* Estilo por defecto, 4 tarjetas por fila */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px; /* Margen negativo para contrarrestar el margen de las tarjetas */
+}
+
+.col-md-3 {
+  flex: 0 0 calc(25% - 30px); /* Calcula el ancho para 4 tarjetas por fila */
+  max-width: calc(25% - 30px); /* Calcula el ancho máximo para 4 tarjetas por fila */
+  margin: 15px; /* Margen entre las tarjetas */
+}
+
+/* Media query para 2 tarjetas por fila en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 calc(50% - 30px); /* Calcula el ancho para 2 tarjetas por fila */
+    max-width: calc(50% - 30px); /* Calcula el ancho máximo para 2 tarjetas por fila */
+  }
+}
+
+/* Media query para 1 tarjeta por fila en pantallas aún más pequeñas */
+@media (max-width: 576px) {
+  .col-md-3 {
+    flex: 0 0 calc(100% - 30px); /* Calcula el ancho para 1 tarjeta por fila */
+    max-width: calc(100% - 30px); /* Calcula el ancho máximo para 1 tarjeta por fila */
+  }
+}
+
+/* ItemDetailContainer */
+.item-list-container-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 25px;
 }
