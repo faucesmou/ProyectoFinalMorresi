@@ -86,22 +86,12 @@ function BotonContador({ producto }) {
 
   return (
     <div className="BotonContador">
-      <div className="PrimeroContenido">
-        <main className="primero-main">
-          <section className="primeroMensaje">
-            <article className="eleccion">
-              <div className="individual"></div>
-              <div>
-      <Button variant="light" onClick={decrementarCantidad}>-</Button>
+      <Button style={{ marginLeft: "40px", marginRight: "0.2rem"}} variant="light" onClick={decrementarCantidad}>-</Button>
       <span style={{ marginLeft: "0.2rem", marginRight: "0.2rem"}}>{cantidad}</span>
       <Button variant="light" onClick={incrementarCantidad}>+</Button>
-      <Button variant="dark" type="submit" style={{ fontSize: '12px' }} onClick={incrementarCantidad}>Agregar al carrito</Button>
+      <Button variant="dark" type="submit" style={{ fontSize: '10px', background: "blue" }} onClick={incrementarCantidad}>Agregar al carrito</Button>
     </div>
-            </article>
-          </section>
-        </main>
-      </div>
-    </div>
+           
   );
 }
 

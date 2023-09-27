@@ -78,3 +78,27 @@
     justify-content: center; */
   
 }
+/* Item2  */
+.card {
+  width: 300px; /* Ajusta el ancho según tus necesidades */
+  height: 400px; /* Ajusta la altura según tus necesidades */
+}
+.product-box_image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 3px;
+}
+.col-md-2 {
+  margin-right: 5px; /* Puedes ajustar el valor según tus necesidades */
+}
+/* Eliminar el margen derecho de la última tarjeta en una fila */
+.col-md-2:last-child {
+  margin-right: 0;
+}
+.card-title {
+  font-size: medium;
+}
+.precio{
+  font-size: small;
+}

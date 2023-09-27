@@ -16,7 +16,8 @@ function CollapsibleExample() {
     variant="dark"
     >
       <Container>
-        <Navbar.Brand>Equinox</Navbar.Brand>
+      <NavLink to="/"><Navbar.Brand>Equinox</Navbar.Brand>
+      </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
