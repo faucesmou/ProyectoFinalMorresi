@@ -10,6 +10,28 @@ import productsData from './data/productsDataBase.json';
 export const CartContext = createContext();
 
 
+const idsFiltrados = ['1', '4', '6'];
+const idsTecno = ['2', '3', '7', '8', '9', '10', '14'];
+const idsHogar = ['5', '11', '12', '13', '15'];
+
+const electrodomesticos = productsData.filter((producto) => {
+  const productoIdString = producto.id.toString();
+  return idsFiltrados.includes(productoIdString);
+});
+
+const tecnologia = productsData.filter((producto) => {
+  const productoIdString = producto.id.toString();
+  return idsTecno.includes(productoIdString);
+});
+
+const hogar = productsData.filter((producto) => {
+  const productoIdString = producto.id.toString();
+  return idsHogar.includes(productoIdString);
+});
+
+
+
+
 function App() {
   const [cartState, setCartState] = useState([]);
   return (
@@ -20,10 +42,11 @@ function App() {
             <CollapsibleExample />
           </header>
           <Routes>
-            {/* <Route path="/" element={<ItemList2 products={productsData} />} /> */}
             <Route path="/" element={<ItemListContainer products={productsData} />} />
-            <Route path="/novedades" element={<ItemDetailContainer text='Esta es la página de detalles!' />} />
-            <Route path="/product/:id" element={<ItemDetailContainer products={productsData} />} />
+            <Route path="/category/electrodomesticos" element={<ItemListContainer products={electrodomesticos} />} />
+            <Route path="/category/tecnologia" element={<ItemListContainer products={tecnologia} />}/>
+            <Route path="/hogar" element={<ItemListContainer  products={hogar}/>} />
+            <Route path="/item/:id" element={<ItemDetailContainer products={productsData} />} />
           </Routes>
         </CartContext.Provider>
       </BrowserRouter>

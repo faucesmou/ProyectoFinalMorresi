@@ -1,43 +1,54 @@
-import React from 'react';
-import CartWidget from './CartWidget'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React from "react";
+import CartWidget from "./CartWidget";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
 
 function CollapsibleExample() {
   return (
     <Navbar
-    className="w-100"
-    collapseOnSelect
-    expand="lg"
-    bg="dark"
-    variant="dark"
+      className="w-100"
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
     >
       <Container>
-      <NavLink to="/"><Navbar.Brand>Equinox</Navbar.Brand>
-      </NavLink>
+        <NavLink to="/">
+          <Navbar.Brand>Equinox</Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Novedades</Nav.Link>
-            <NavLink to="/novedades">
-            <Nav.Link href="#pricing">Detalle de productos</Nav.Link>
+            <NavLink to="/category/electrodomesticos">
+              <Nav.Link href="#pricing">Electrodomésticos</Nav.Link>
+            </NavLink>
+            <NavLink to="/hogar">
+              <Nav.Link href="#pricing">Hogar</Nav.Link>
             </NavLink>
             <NavDropdown title="Información" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Lo que hay que saber</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">
+                Lo que hay que saber
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Productos</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Categorías</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Ropa para niños</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4">
+                Ropa para niños
+              </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="numeroHarcodeado">Oportunidades</Nav.Link>
+            <NavLink to="/category/tecnologia">
+              <Nav.Link href="#pricing">Tecnología</Nav.Link>
+            </NavLink>
           </Nav>
           <Nav>
-            <Nav.Link className= 'perfiles' href="#deets">Perfiles</Nav.Link>
+            <Nav.Link className="perfiles" href="#deets">
+              Perfiles
+            </Nav.Link>
           </Nav>
-    <CartWidget />
+          <CartWidget />
         </Navbar.Collapse>
       </Container>
     </Navbar>

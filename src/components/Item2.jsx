@@ -22,7 +22,7 @@ import BotonContador from "./ItemCount";
 const Item2 = ({ product }) => {
   return (
     <div className="card">
-      <a href={`/products/detail/${product.description}`} className="card-link">
+      <a href={`/item/detail/${product.description}`} className="card-link">
         <figure className="card-img-top">
           <img src={`/images/products/${product.image}`} alt="imagen de producto" className="img-fluid" />
         </figure>

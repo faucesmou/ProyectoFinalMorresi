@@ -11,7 +11,7 @@ const ItemList2 = ({ products }) => {
         {products.map((product) => (
           <div className="col-md-3" key={product.id}>
             <Link
-              to={`/product/${product.id}`}
+              to={`/item/${product.id}`}
               className="text-decoration-none"
             >
               <Item2 key={product.id} product={product} />
