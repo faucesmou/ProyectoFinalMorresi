@@ -85,6 +85,7 @@
   width: 100%; /* Ancho al 100% para que sea responsive */
   max-width: 300px; /* Ancho máximo de 300px */
   height: auto; /* La altura se ajusta automáticamente según el contenido */
+/*   background-color: #96a2b8; */
 }
 
 .card-link {

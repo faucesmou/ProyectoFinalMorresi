@@ -7,7 +7,10 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { createContext, useState } from "react";
 import React from 'react';
 import productsData from './data/productsDataBase.json';
+import { ThemeProvider } from './ThemeContext'
 export const CartContext = createContext();
+
+// Crear el contexto de tema
 
 
 const idsFiltrados = ['1', '4', '6'];
@@ -33,8 +36,12 @@ const hogar = productsData.filter((producto) => {
 
 
 function App() {
+
+  
   const [cartState, setCartState] = useState([]);
   return (
+    <ThemeProvider>
+      
     <div className="App">
       <BrowserRouter>
         <CartContext.Provider value={{ cartState, setCartState }}>
@@ -50,7 +57,9 @@ function App() {
           </Routes>
         </CartContext.Provider>
       </BrowserRouter>
+  
     </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from "./CartWidget";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { NavLink } from "react-router-dom";
+import { ThemeProvider, ThemeContext, themes  } from '../ThemeContext'
 
 function CollapsibleExample() {
+
+  const { theme, cambioTema } = useContext(ThemeContext);
+
   return (
     <Navbar
       className="w-100"
@@ -29,8 +33,8 @@ function CollapsibleExample() {
               <Nav.Link href="#pricing">Hogar</Nav.Link>
             </NavLink>
             <NavDropdown title="Información" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                Lo que hay que saber
+              <NavDropdown.Item href="#action/3.1" onClick={cambioTema} >
+                Modo Oscuro
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Productos</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Categorías</NavDropdown.Item>
