@@ -88,7 +88,7 @@ function BotonContador({ producto }) {
     <div className="BotonContador">
       <Button style={{ marginLeft: "40px", marginRight: "0.2rem"}} variant="light" onClick={decrementarCantidad}>-</Button>
       <span style={{ marginLeft: "0.2rem", marginRight: "0.2rem"}}>{cantidad}</span>
-      <Button variant="light" onClick={incrementarCantidad}>+</Button>
+      <Button variant="light" onClick={incrementarCantidad} >+</Button>
       <Button variant="dark" type="submit" style={{ fontSize: '10px', background: "blue" }} onClick={incrementarCantidad}>Agregar al carrito</Button>
     </div>
            

@@ -4,13 +4,14 @@ import CollapsibleExample from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import React from 'react';
 import productsData from './data/productsDataBase.json';
 import { ThemeProvider } from './ThemeContext'
-export const CartContext = createContext();
 
-// Crear el contexto de tema
+
+
+export const CartContext = createContext();
 
 
 const idsFiltrados = ['1', '4', '6'];
@@ -37,28 +38,54 @@ const hogar = productsData.filter((producto) => {
 
 function App() {
 
-  
+
   const [cartState, setCartState] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+
+    setTimeout(() => {
+      setIsLoading(false); // Después de 3 segundos, cambiar isLoading a false
+    }, 5000); // 3000 milisegundos = 3 segundos
+
+    window.addEventListener("load", () => {
+      console.log('se ejecuta el load');
+      const loaderWrapper = document.querySelector(".loader-wrapper");
+      if (loaderWrapper) loaderWrapper.style.display = "none";
+    });
+  }, []);
+
   return (
     <ThemeProvider>
-      
-    <div className="App">
-      <BrowserRouter>
-        <CartContext.Provider value={{ cartState, setCartState }}>
-          <header >
-            <CollapsibleExample />
-          </header>
-          <Routes>
-            <Route path="/" element={<ItemListContainer products={productsData} />} />
-            <Route path="/category/electrodomesticos" element={<ItemListContainer products={electrodomesticos} />} />
-            <Route path="/category/tecnologia" element={<ItemListContainer products={tecnologia} />}/>
-            <Route path="/hogar" element={<ItemListContainer  products={hogar}/>} />
-            <Route path="/item/:id" element={<ItemDetailContainer products={productsData} />} />
-          </Routes>
-        </CartContext.Provider>
-      </BrowserRouter>
-  
-    </div>
+
+      <div className="App">
+        <BrowserRouter>
+          <CartContext.Provider value={{ cartState, setCartState }}>
+            {isLoading ? (
+              // Mostrar el loader mientras isLoading sea true
+              <div className="loader-wrapper">
+                <div className="loader"></div>
+              </div>
+            ) : (
+              // Mostrar el contenido real cuando isLoading sea false
+              <>
+                <header >
+                  <CollapsibleExample />
+                </header>
+                <Routes>
+                  <Route path="/" element={<ItemListContainer products={productsData} />} />
+                  <Route path="/category/electrodomesticos" element={<ItemListContainer products={electrodomesticos} />} />
+                  <Route path="/category/tecnologia" element={<ItemListContainer products={tecnologia} />} />
+                  <Route path="/hogar" element={<ItemListContainer products={hogar} />} />
+                  <Route path="/item/:id" element={<ItemDetailContainer products={productsData} />} />
+                </Routes>
+                </>)}
+              </CartContext.Provider>
+
+        </BrowserRouter>
+
+
+      </div>
     </ThemeProvider>
   );
 }
