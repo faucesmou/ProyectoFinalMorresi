@@ -8,7 +8,7 @@ import { createContext, useState, useEffect } from "react";
 import React from 'react';
 import productsData from './data/productsDataBase.json';
 import { ThemeProvider } from './ThemeContext'
-
+import { CartProvider } from './context/cartContext';
 
 
 export const CartContext = createContext();
@@ -46,7 +46,7 @@ function App() {
 
     setTimeout(() => {
       setIsLoading(false); // Después de 3 segundos, cambiar isLoading a false
-    }, 5000); // 3000 milisegundos = 3 segundos
+    }, 1000); // 3000 milisegundos = 3 segundos
 
     window.addEventListener("load", () => {
       console.log('se ejecuta el load');
@@ -60,6 +60,7 @@ function App() {
 
       <div className="App">
         <BrowserRouter>
+      <CartProvider>
           <CartContext.Provider value={{ cartState, setCartState }}>
             {isLoading ? (
               // Mostrar el loader mientras isLoading sea true
@@ -81,7 +82,7 @@ function App() {
                 </Routes>
                 </>)}
               </CartContext.Provider>
-
+           </CartProvider>
         </BrowserRouter>
 
 

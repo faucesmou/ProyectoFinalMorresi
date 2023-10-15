@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import Item2 from "./Item2";
 import { Link } from "react-router-dom";
 import { ThemeContext, themes } from "../ThemeContext";
+import BotonContador from "./ItemCount"; 
+
 
 function ItemListContainer({ /* mensaje, */ products }) {
   console.log(products);
@@ -18,6 +20,7 @@ function ItemListContainer({ /* mensaje, */ products }) {
       {products.map((product) => (
         <Link to={`/item/${product.id}`} className="text-decoration-none">
           <Item2 key={product.id} product={product} />
+          <BotonContador producto={product} />
         </Link>
       ))}
       

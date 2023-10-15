@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Item2 from "./Item2";
+import BotonContador from "./ItemCount"; 
+
+
 
 const ItemDetailContainer = ({ products }) => {
-  // Obtener el parámetro "id" de la URL
+ 
+  //trabajando en el contador y carrito:
+const [quantityAdded, setQuantityAdded] = useState(0);
+
+const handleOndAdd = (quantity) => {
+  setQuantityAdded(quantity)
+}
+
+ // Obtener el parámetro "id" de la URL
   const { id } = useParams();
   if (!id ) {
     return <div> problema con el id</div>;
@@ -21,6 +32,7 @@ const ItemDetailContainer = ({ products }) => {
       <p>Precio: ${product.price}</p>
       <div className="item-list-container-detail" >
        <Item2 product={product} />
+       <BotonContador producto={product} />
       </div>
     </div>
   );

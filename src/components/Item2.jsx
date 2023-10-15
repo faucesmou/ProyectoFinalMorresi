@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import BotonContador from "./ItemCount";
+/* import BotonContador from "./ItemCount"; */
 import {ThemeContext} from "../ThemeContext";
 
 const Item2 = ({ product }) => {
@@ -19,7 +19,7 @@ const Item2 = ({ product }) => {
           <p className="card-text precio">${product.price}</p>
         </div>
       </a>
-      <BotonContador />
+{/*       <BotonContador producto={product} /> */}
     </div>
   );
 };
