@@ -7,6 +7,8 @@ import { CartContext2 } from "../context/cartContext";
 function BotonContador({ producto }) {
   const { cartState2, addItem, removeItem, clearCart } =
     useContext(CartContext2);
+  // estado para mostrar o quitar botones de incrementar o disminuir cantidades luego de "agregar al carrito":
+  const [agregadoAlCarrito, setAgregadoAlCarrito] = useState(false);
 
   //trabajando en el contador para cartel de finalizar compra y carrito:
 
@@ -19,6 +21,7 @@ function BotonContador({ producto }) {
 
   const handleOndAdd = (cantidad) => {
     setCantidad(cantidad);
+    setAgregadoAlCarrito(true);
 
     const productoAgregado = {
       id: producto.id,
@@ -31,10 +34,12 @@ function BotonContador({ producto }) {
 
   const handleRemoveFromCart = () => {
     removeItem(producto.id);
+    setAgregadoAlCarrito(false);
   };
 
   const cleaningCart = () => {
     clearCart();
+    setAgregadoAlCarrito(false);
   };
 
   // funciones para la vista de la cantidad:
@@ -50,7 +55,70 @@ function BotonContador({ producto }) {
 
   return (
     <div className="BotonContador">
-      <Button
+      {agregadoAlCarrito ? (
+        <>
+          <Button
+            onClick={() => handleRemoveFromCart()}
+            variant="dark"
+            type="submit"
+            style={{ fontSize: "10px", background: "blue" }}
+          >
+            Quitar del carrito
+          </Button>
+          <Button
+            onClick={() => cleaningCart()}
+            variant="dark"
+            type="submit"
+            style={{ fontSize: "10px", background: "blue" }}
+          >
+            Restablecer carrito
+          </Button>
+        </>
+      ) : (
+        <>
+          <Button
+            onClick={() => decrementarCantidad()}
+            style={{ marginLeft: "40px", marginRight: "0.2rem" }}
+            variant="light"
+          >
+            -
+          </Button>
+          <span style={{ marginLeft: "0.2rem", marginRight: "0.2rem" }}>
+            {cantidad}
+          </span>
+          <Button variant="light" onClick={() => incrementarCantidad()}>
+            +
+          </Button>
+          <Button
+            onClick={() => handleOndAdd(cantidad)}
+            variant="dark"
+            type="submit"
+            style={{ fontSize: "10px", background: "blue" }}
+          >
+            Agregar al carrito
+          </Button>
+        </>
+      )}
+
+      <footer className="BotonContadorFooter">
+        {cantidad > 0 ? (
+          <Link to="/cart" className="Option">
+            <button
+              style={{
+                fontSize: "10px",
+                background: "orange",
+                borderRadius: "20px",
+                padding: "5px 10px",
+                marginTop: "5px",
+              }}
+            >
+              Terminar compra
+            </button>
+          </Link>
+        ) : null}
+      </footer>
+
+      {/* <Button
         onClick={() => decrementarCantidad()}
         style={{ marginLeft: "40px", marginRight: "0.2rem" }}
         variant="light"
@@ -63,6 +131,8 @@ function BotonContador({ producto }) {
       <Button variant="light" onClick={() => incrementarCantidad()}>
         +
       </Button>
+
+
       <Button
         onClick={() => handleOndAdd(cantidad)}
         variant="dark"
@@ -87,11 +157,7 @@ function BotonContador({ producto }) {
       >
         Restablecer carrito
       </Button>
-      {/*  {isInCart(producto.id) ? (
-        <button onClick={handleRemoveFromCart}>Quitar del carrito</button>
-      ) : (
-        null
-      )} */}
+     
       <footer className="BotonContadorFooter">
         {cantidad > 0 ? (
           <Link to="/cart" className="Option">
@@ -108,7 +174,7 @@ function BotonContador({ producto }) {
             </button>
           </Link>
         ) : null}
-      </footer>
+      </footer> */}
     </div>
   );
 }
