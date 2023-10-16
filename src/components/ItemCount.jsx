@@ -1,6 +1,6 @@
 import Button from "react-bootstrap/Button";
-import React, { useContext, useState, useEffect } from "react";
-import { CartContext } from "../App";
+import React, { useContext, useState } from "react";
+/* import { CartContext } from "../App"; */
 import { Link } from "react-router-dom";
 import { CartContext2 } from "../context/cartContext";
 
@@ -15,9 +15,7 @@ function BotonContador({ producto }) {
   const [cantidad, setCantidad] = useState(1);
   const stock = 5;
 
-  useEffect(() => {
-    console.log("El estado del carrito se ha actualizado:", cartState2);
-  }, [cartState2]);
+
 
   const handleOndAdd = (cantidad) => {
     setCantidad(cantidad);
