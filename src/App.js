@@ -15,7 +15,7 @@ import { CartProvider } from './context/cartContext';
 export const CartContext = createContext();
 
 
-const idsFiltrados = ['1', '4', '6'];
+/* const idsFiltrados = ['1', '4', '6'];
 const idsTecno = ['2', '3', '7', '8', '9', '10', '14'];
 const idsHogar = ['5', '11', '12', '13', '15'];
 
@@ -33,7 +33,7 @@ const hogar = productsData.filter((producto) => {
   const productoIdString = producto.id.toString();
   return idsHogar.includes(productoIdString);
 });
-
+ */
 
 
 

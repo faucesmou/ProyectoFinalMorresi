@@ -3,17 +3,17 @@ import Item2 from "./Item2";
 import { Link } from "react-router-dom";
 import { ThemeContext, themes } from "../ThemeContext";
 import BotonContador from "./ItemCount";
-import { CartContext2 } from "../context/cartContext";
+/* import { CartContext2 } from "../context/cartContext"; */
 import { useParams } from "react-router-dom";
 import {
-  doc,
+  /*   doc, */
   getDocs,
   getFirestore,
   collection,
-  query,
+  /*  query,
   where,
   getDoc,
-  addDoc,
+  addDoc, */
 } from "firebase/firestore";
 
 function ItemListContainer() {
@@ -53,15 +53,12 @@ function ItemListContainer() {
         } else {
           // Si no tienes un categoryId en la URL, muestra todos los productos
           setProducts(allProducts);
-          console.log(
-            "Category Id: ",categoryId
-          );
+          console.log("Category Id: ", categoryId);
           console.log(
             "Consulta realizada con éxito, se muestran todos los productos; ",
             products
           );
         }
-
       } catch (error) {
         console.error(
           "Error buscando los productos en la base de datos, error:",
@@ -70,31 +67,35 @@ function ItemListContainer() {
       }
     };
     // Antes de realizar una nueva consulta, limpia el estado de los productos
+    console.log(
+      "Consulta realizada con éxito y productos filtrados localmente en setProducts; ",
+      products
+    );
     setProducts([]);
     fetchProducts();
   }, [categoryId]); // Este efecto se ejecutará cuando cambie la categoría
-  
+
   /*   const { cartState2 } = useContext(CartContext2);
   useEffect(() => {
     console.log("El estado del carrito se ha actualizado:", cartState2);
   }, [cartState2]); */
-  
+
   const { theme } = useContext(ThemeContext);
-  
+
   return (
     <div
-    className="item-list-container"
-    style={{
-      background: themes[theme].background,
-      color: themes[theme].color,
-    }}
+      className="item-list-container"
+      style={{
+        background: themes[theme].background,
+        color: themes[theme].color,
+      }}
     >
       {products.map((product) => (
         <Link
-        to={`/item/${product.id}`}
-        className="text-decoration-none"
+          to={`/item/${product.id}`}
+          className="text-decoration-none"
           key={product.id}
-          >
+        >
           <Item2 product={product} />
           <BotonContador producto={product} />
         </Link>
@@ -168,9 +169,7 @@ setProducts(productsData); */
   );
 } */
 
-{
-  /*  <button onClick={() => insertarDatos()}> Agregar productos! </button> */
-}
+/*  <button onClick={() => insertarDatos()}> Agregar productos! </button> */
 
 /*  useEffect(() => {
    const fetchData = async () => {
