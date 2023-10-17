@@ -4,13 +4,13 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { ThemeProvider, ThemeContext, themes  } from '../ThemeContext'
 
 function CollapsibleExample() {
 
   const { theme, cambioTema } = useContext(ThemeContext);
-
+  const navigate = useNavigate();
   return (
     <Navbar
       className="w-100"
@@ -26,10 +26,10 @@ function CollapsibleExample() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to="/category/electrodomesticos">
-              <Nav.Link href="#pricing">Electrodomésticos</Nav.Link>
+            <NavLink as={Link} to="/category/electrodomesticos">
+              <Nav.Link  href="#pricing">Electrodomésticos</Nav.Link>
             </NavLink>
-            <NavLink to="/hogar">
+            <NavLink  as={Link} to="/category/hogar">
               <Nav.Link href="#pricing">Hogar</Nav.Link>
             </NavLink>
             <NavDropdown title="Información" id="collasible-nav-dropdown">
@@ -43,7 +43,7 @@ function CollapsibleExample() {
                 Ropa para niños
               </NavDropdown.Item>
             </NavDropdown>
-            <NavLink to="/category/tecnologia">
+            <NavLink  as={Link} to="/category/tecnologia">
               <Nav.Link href="#pricing">Tecnología</Nav.Link>
             </NavLink>
           </Nav>

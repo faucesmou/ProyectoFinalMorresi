@@ -20,46 +20,81 @@ function ItemListContainer() {
   const [products, setProducts] = useState([]); // Usamos un estado local para almacenar los productos
 
   const { categoryId } = useParams();
+  console.log("ESTE ES el categoryId: ", categoryId);
   const db = getFirestore();
   const collectionRef = collection(db, "items");
-  const categoryFilter = categoryId
+  /* const categoryFilter = categoryId
     ? where("category", "==", categoryId)
-    : query(collectionRef);
+    :  query (collectionRef); */
 
   useEffect(() => {
+    console.log("ESTE ES el categoryId numero 2: ", categoryId);
+
     const fetchProducts = async () => {
       try {
-        const productsSnapshot = await getDocs(categoryFilter);
-        const productsData = productsSnapshot.docs.map((doc) => ({
+        // traigo todos los productos:
+
+        const productsSnapshot = await getDocs(collectionRef);
+        const allProducts = productsSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setProducts(productsData);
+
+        if (categoryId) {
+          // Si tengo un categoryId en la URL, filtra localmente los productos
+          const filteredProducts = allProducts.filter(
+            (product) => product.categoryId === categoryId
+          );
+          setProducts(filteredProducts);
+          console.log(
+            "Consulta realizada con éxito y productos filtrados localmente en setProducts; ",
+            products
+          );
+        } else {
+          // Si no tienes un categoryId en la URL, muestra todos los productos
+          setProducts(allProducts);
+          console.log(
+            "Category Id: ",categoryId
+          );
+          console.log(
+            "Consulta realizada con éxito, se muestran todos los productos; ",
+            products
+          );
+        }
+
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error(
+          "Error buscando los productos en la base de datos, error:",
+          error
+        );
       }
     };
-
+    // Antes de realizar una nueva consulta, limpia el estado de los productos
+    setProducts([]);
     fetchProducts();
   }, [categoryId]); // Este efecto se ejecutará cuando cambie la categoría
-
-/*   const { cartState2 } = useContext(CartContext2);
+  
+  /*   const { cartState2 } = useContext(CartContext2);
   useEffect(() => {
     console.log("El estado del carrito se ha actualizado:", cartState2);
   }, [cartState2]); */
-
+  
   const { theme } = useContext(ThemeContext);
-
+  
   return (
     <div
-      className="item-list-container"
-      style={{
-        background: themes[theme].background,
-        color: themes[theme].color,
-      }}
+    className="item-list-container"
+    style={{
+      background: themes[theme].background,
+      color: themes[theme].color,
+    }}
     >
       {products.map((product) => (
-        <Link to={`/item/${product.id}`} className="text-decoration-none" key={product.id}>
+        <Link
+        to={`/item/${product.id}`}
+        className="text-decoration-none"
+          key={product.id}
+          >
           <Item2 product={product} />
           <BotonContador producto={product} />
         </Link>
@@ -67,12 +102,19 @@ function ItemListContainer() {
     </div>
   );
 }
-  
-  
-  export default ItemListContainer;
 
+export default ItemListContainer;
 
- /*  const [product, setProduct] = useState(null);
+//intento de filtrar productos desde la URL hacia la base de datos:
+/*   ? query(collectionRef, where("category", "==", categoryId))
+: collectionRef;
+const productsSnapshot = await getDocs(queryRef);
+const productsData = productsSnapshot.docs.map((doc) => ({
+  id: doc.id,
+  ...doc.data(),
+}));
+setProducts(productsData); */
+/*  const [product, setProduct] = useState(null);
 
 
   const db = getFirestore();
@@ -126,13 +168,9 @@ function ItemListContainer() {
   );
 } */
 
-
-
-
-
-
-
-{/*  <button onClick={() => insertarDatos()}> Agregar productos! </button> */}
+{
+  /*  <button onClick={() => insertarDatos()}> Agregar productos! </button> */
+}
 
 /*  useEffect(() => {
    const fetchData = async () => {

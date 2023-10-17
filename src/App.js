@@ -76,10 +76,10 @@ function App() {
                 </header>
                 <Routes>
                   <Route path="/" element={<ItemListContainer /* products={productsData} */ />} />
-                  <Route path="/category/electrodomesticos" element={<ItemListContainer products={electrodomesticos} />} />
-                  <Route path="/category/tecnologia" element={<ItemListContainer products={tecnologia} />} />
+                  <Route path="/category/:categoryId" element={<ItemListContainer />} />
                   <Route path="/cart" element={<Cart/>} />
-                  <Route path="/hogar" element={<ItemListContainer products={hogar} />} />
+                {/*   <Route path="/category/tecnologia" element={<ItemListContainer  />} /> */}
+                  {/* <Route path="/hogar" element={<ItemListContainer  />} /> */}
                   <Route path="/item/:id" element={<ItemDetailContainer products={productsData} />} />
                 </Routes>
                 </>)}
