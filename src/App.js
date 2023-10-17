@@ -75,7 +75,7 @@ function App() {
                   <CollapsibleExample />
                 </header>
                 <Routes>
-                  <Route path="/" element={<ItemListContainer products={productsData} />} />
+                  <Route path="/" element={<ItemListContainer /* products={productsData} */ />} />
                   <Route path="/category/electrodomesticos" element={<ItemListContainer products={electrodomesticos} />} />
                   <Route path="/category/tecnologia" element={<ItemListContainer products={tecnologia} />} />
                   <Route path="/cart" element={<Cart/>} />

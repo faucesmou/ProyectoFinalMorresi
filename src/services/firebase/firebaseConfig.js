@@ -1,5 +1,5 @@
 
-/* import { getFirestore } from 'firebase/firestore' ESTO ESTA EN EL VIDEO DE CODER*/
+import { getFirestore } from 'firebase/firestore' /* ESTO ESTA EN EL VIDEO DE CODER*/
 
 
 // Import the functions you need from the SDKs you need
@@ -19,4 +19,4 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-/* export const db = getFirestore(app)ESTO ESTA EN EL VIDEO DE CODER */
+export const db = getFirestore(app) /* ESTO ESTA EN EL VIDEO DE CODER */
