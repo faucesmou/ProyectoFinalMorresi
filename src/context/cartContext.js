@@ -13,8 +13,8 @@ export const CartProvider = ({ children }) => {
   const addItem = (productoAgregado, cantidad) => {
 
     if (!isInCart(productoAgregado)) {
-      setCartState2(prev => [...prev, {...productoAgregado, cantidad}])
-      console.log('este es el cartState2 con el nuevo producto: ' , cartState2, 'nuevo productoAgregado:', productoAgregado);
+      setCartState2(prev => [...prev, { ...productoAgregado, cantidad }])
+      console.log('este es el cartState2 con el nuevo producto: ', cartState2, 'nuevo productoAgregado:', productoAgregado);
     } else {
       console.error('el producto ya fue agregado')
     }
@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const isInCart = (productoAgregado) => {
-    const itemId = productoAgregado.id 
+    const itemId = productoAgregado.id
     return cartState2.some(prod => prod.id === itemId)
   }
 

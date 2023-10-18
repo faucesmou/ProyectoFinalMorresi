@@ -28,7 +28,8 @@ const Cart = () => {
       {cartState2.map((product) => (
         <div key={product.id} className="cart-item">
           <div className="item-info">
-            <h4>{product.name}</h4>
+            <h4>Producto: {product.name}</h4>
+            <img src={`/images/products/${product.imagen}`} alt={product.name} />
             <p>Precio por unidad: ${product.price}</p>
           </div>
           <div className="item-quantity">

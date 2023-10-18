@@ -23,9 +23,10 @@ function BotonContador({ producto }) {
 
     const productoAgregado = {
       id: producto.id,
-      name: producto.name,
+      name: producto.title,
       price: producto.price,
       cantidad: cantidad,
+      imagen: producto.image
     };
     addItem(productoAgregado, cantidad);
   };
