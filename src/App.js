@@ -7,13 +7,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { createContext, useState, useEffect } from "react";
 import React from 'react';
-import dotenv from 'dotenv'; // Importa dotenv
+/* import dotenv from 'dotenv';  */// Importa dotenv
 import productsData from './data/productsDataBase.json';
 import { ThemeProvider } from './ThemeContext'
 import { CartProvider } from './context/cartContext';
 
 // Configuro las variables de entorno
-dotenv.config();
+/* dotenv.config(); */
 
 
 
