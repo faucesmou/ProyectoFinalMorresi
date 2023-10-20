@@ -172,3 +172,108 @@
   align-items: center; 
   margin: 25px;
 }
+
+/* Vista del carrito  */
+
+/* Estilos CSS para el carrito */
+.cart {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.cart-item {
+  background-color: #fff;
+  border: 1px solid rgb(207, 187, 187);
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-item img {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.item-info {
+  flex: 2; /* Ocupa 2 partes de 3 (ajusta según tu preferencia) */
+}
+
+.item-quantity {
+  flex: 1; /* Ocupa 1 parte de 3 (ajusta según tu preferencia) */
+}
+
+.cart-button {
+  flex: 1; /* Ocupa 1 parte de 3 (ajusta según tu preferencia) */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 1px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+ /*  margin-left: auto; */
+}
+
+.cart-total {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Estilos CSS para títulos y subtítulos */
+.cart-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cart-subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Estilos CSS para botones */
+.cart-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+  text-decoration: none;
+}
+
+.cart-button-remove {
+  background-color: #007bff; /* Cambia el color según tus preferencias */
+  color: #fff;
+  border: none;
+  padding: 5px 10px; /* Ajusta el espaciado horizontal y vertical del botón */
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px; /* Ajusta el tamaño de fuente */
+}
+
+.cart-button:hover {
+  background-color: #0056b3;
+}
+
+.cart-button-primary {
+  background-color: #4caf50;
+  margin-top: 30px;
+}
+
+.cart-button-primary:hover {
+  background-color: #357a38;
+  
+}
+
+/* Otros estilos personalizados para los elementos que necesites */

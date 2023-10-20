@@ -10,6 +10,14 @@ const Cart = () => {
     return product.price * product.cantidad;
   };
 
+   // Función para calcular el subtotal de un producto
+   const calculateTotal = () => {
+    const total = cartState2.reduce((acc, product) => {
+      return acc + calculateSubtotal(product);
+    }, 0);
+    return total;
+   }
+
   // Función para eliminar un producto del carrito
   const handleRemoveFromCart = (productId) => {
     removeItem(productId);
@@ -25,13 +33,17 @@ const Cart = () => {
 
   return (
     <div className="cart">
+      <h2 className="cart-title">Carrito de Compras</h2>
+      <h3 className="cart-subtitle">Resumen de tu compra</h3>
+     
       {cartState2.map((product) => (
         <div key={product.id} className="cart-item">
           <div className="item-info">
-            <h4>Producto: {product.name}</h4>
+            <h4 className="cart-subtitle" >Producto: {product.name}</h4>
             <img
               src={`/images/products/${product.imagen}`}
               alt={product.name}
+              style={{ width: "100px" }} 
             />
             <p>Precio por unidad: ${product.price}</p>
           </div>
@@ -39,20 +51,21 @@ const Cart = () => {
             <p>Cantidad: {product.cantidad}</p>
             <p>Subtotal: ${calculateSubtotal(product)}</p>
           </div>
-          <button onClick={() => handleRemoveFromCart(product.id)}>
+          <button  className="cart-button-remove" onClick={() => handleRemoveFromCart(product.id)}>
             Quitar del carrito
           </button>
         </div>
       ))}
       <div>
-        <button style={{ marginTop: "20px" }} onClick={() => cleaningCart()}>
+      <p className="cart-total">Total de la compra: ${calculateTotal()}</p>
+        <button /* style={{ marginTop: "20px" }} */ className="cart-button"  onClick={() => cleaningCart()}>
           Limpiar el carrito
         </button>
       </div>
       <div>
-        <Link to="/checkout" className="Option">
+        <Link to="/checkout" /* className="Option" */ className="cart-button cart-button-primary">
           {" "}
-          Checkout
+          Finalizar compra
         </Link>
       </div>
     </div>
