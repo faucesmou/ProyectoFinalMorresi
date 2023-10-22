@@ -60,7 +60,7 @@ function BotonContador({ producto }) {
             onClick={() => handleRemoveFromCart()}
             variant="dark"
             type="submit"
-            style={{ fontSize: "10px", background: "blue" }}
+            style={{ fontSize: "10px", background: "#f1560d", marginLeft: "10px" }}
           >
             Quitar del carrito
           </Button>
@@ -68,7 +68,7 @@ function BotonContador({ producto }) {
             onClick={() => cleaningCart()}
             variant="dark"
             type="submit"
-            style={{ fontSize: "10px", background: "blue" }}
+            style={{ fontSize: "10px", background: "#0d68f1", marginLeft: "10px" }}
           >
             Restablecer carrito
           </Button>
@@ -92,7 +92,7 @@ function BotonContador({ producto }) {
             onClick={() => handleOndAdd(cantidad)}
             variant="dark"
             type="submit"
-            style={{ fontSize: "10px", background: "blue" }}
+            style={{ fontSize: "10px", background: "#007bff" }}
           >
             Agregar al carrito
           </Button>

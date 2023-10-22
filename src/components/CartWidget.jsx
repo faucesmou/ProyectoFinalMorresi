@@ -14,9 +14,9 @@ function CartWidget() {
   return (
     <div className="cart-widget" style={{ display: cantidadProductos > 0 ? 'block' : 'none' }} >
          <img src={carroDeCompra2} alt="Cart Icon" />
-        {/* <FaShoppingCart /> */}
+       {/*  <FaShoppingCart /> */}
         <span className="cart-notification">{cantidadProductos}</span>
-      {/* <i className="fa fa-shopping-cart"></i> */}
+      <i className="fa fa-shopping-cart"></i>
     </div>
   );
 }

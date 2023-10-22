@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Item2 from "./Item2";
 import BotonContador from "./ItemCount";
- import {  doc,
+ import {  /* doc, */
   getDocs,
   getFirestore,
   collection,
-  query,
+  /* query,
   where,
   getDoc,
-  addDoc, } from 'firebase/firestore';
+  addDoc,  */} from 'firebase/firestore';
 
 
 const ItemDetailContainer = () => {
@@ -53,9 +53,9 @@ const ItemDetailContainer = () => {
   } else {
     return (
       <div className="container">
-        <h2 className="product-title">{product.name}</h2>
+        <h2 className="product-title">{product.title}</h2>
         <h5>{product.description}</h5>
-        <p>Precio: ${product.price}</p>
+        {/* <p>Precio: ${product.price}</p> */}
         <div className="item-list-container-detail">
           <Item2 product={product} />
           <BotonContador producto={product} />
