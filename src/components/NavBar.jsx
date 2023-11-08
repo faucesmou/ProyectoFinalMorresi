@@ -48,8 +48,8 @@ function CollapsibleExample() {
             </NavLink>
           </Nav>
           <Nav>
-            <Nav.Link className="perfiles" href="#deets">
-              Perfiles
+            <Nav.Link  as={Link} to="/cart" className="perfiles" href="#deets">
+              Carrito
             </Nav.Link>
           </Nav>
           <CartWidget />

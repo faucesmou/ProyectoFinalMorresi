@@ -5,9 +5,9 @@ import ItemListContainer from './components/ItemListContainer'
 import  Cart  from './components/Cart';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import Checkout from "./components/Checkout";
 import { createContext, useState, useEffect } from "react";
 import React from 'react';
-/* import dotenv from 'dotenv';  */// Importa dotenv
 import productsData from './data/productsDataBase.json';
 import { ThemeProvider } from './ThemeContext'
 import { CartProvider } from './context/cartContext';
@@ -16,30 +16,7 @@ import { CartProvider } from './context/cartContext';
 /* dotenv.config(); */
 
 
-
 export const CartContext = createContext();
-
-
-/* const idsFiltrados = ['1', '4', '6'];
-const idsTecno = ['2', '3', '7', '8', '9', '10', '14'];
-const idsHogar = ['5', '11', '12', '13', '15'];
-
-const electrodomesticos = productsData.filter((producto) => {
-  const productoIdString = producto.id.toString();
-  return idsFiltrados.includes(productoIdString);
-});
-
-const tecnologia = productsData.filter((producto) => {
-  const productoIdString = producto.id.toString();
-  return idsTecno.includes(productoIdString);
-});
-
-const hogar = productsData.filter((producto) => {
-  const productoIdString = producto.id.toString();
-  return idsHogar.includes(productoIdString);
-});
- */
-
 
 
 function App() {
@@ -91,9 +68,8 @@ function App() {
                   <Route path="/" element={<ItemListContainer /* products={productsData} */ />} />
                   <Route path="/category/:categoryId" element={<ItemListContainer />} />
                   <Route path="/cart" element={<Cart/>} />
-                {/*   <Route path="/category/tecnologia" element={<ItemListContainer  />} /> */}
-                  {/* <Route path="/hogar" element={<ItemListContainer  />} /> */}
                   <Route path="/item/:id" element={<ItemDetailContainer products={productsData} />} />
+                  <Route path="/checkout" element={<Checkout/>} />
                 </Routes>
                 </>)}
               </CartContext.Provider>
