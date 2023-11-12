@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Item2 from "./Item2";
 import { Link } from "react-router-dom";
-import { ThemeContext, themes } from "../ThemeContext";
+import { ThemeContext } from "../ThemeContext";
 import BotonContador from "./ItemCount";
 /* import { CartContext2 } from "../context/cartContext"; */
 import { useParams } from "react-router-dom";
@@ -106,8 +106,10 @@ function ItemListContainer() {
 
 export default ItemListContainer;
 
-//intento de filtrar productos desde la URL hacia la base de datos:
-/*   ? query(collectionRef, where("category", "==", categoryId))
+
+//Intento de filtrar productos desde la URL hacia la base de datos: no funciona correctamente. 
+
+/*    ? query(collectionRef, where("category", "==", categoryId))
 : collectionRef;
 const productsSnapshot = await getDocs(queryRef);
 const productsData = productsSnapshot.docs.map((doc) => ({

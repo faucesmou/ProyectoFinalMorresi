@@ -1,65 +1,64 @@
-import React, { useContext, useEffect, useState } from "react";
-import { CartContext2 } from "../context/cartContext";
-import { Link } from "react-router-dom";
-import { CartContext } from "../App";
+import React, { useState } from 'react';
 
-const CheckoutForm = ({ onConfirm }) => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
 
-  const handleConfirm = (event) => {
-    event.preventDefault();
+const CheckoutForm = ( {onConfirm}) => {
 
-    const userData = {
-      name,
-      phone,
-      email,
-    };
+    const [name, setName] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
 
-    onConfirm(userData);
-  };
+    const handleConfirm = (event) => {
+        event.preventDefault()
 
-  return (
-    <div className="Container">
-      <h1>Checkout</h1>
-      <form onSubmit={handleConfirm} className="Form">
-        <label className="Label">
-          Nombre
-          <input
-            className="Input"
-            type="text"
-            value={name}
-            onChange={({ target }) => setName(target.value)}
-          />
-        </label>
+        const userData = {
+            name, phone, email
+        }
 
-        <label className="Label">
-          Telefono
-          <input
-            className="Input"
-            type="text"
-            value={phone}
-            onChange={({ target }) => setPhone(target.value)}
-          />
-        </label>
+        onConfirm(userData)
+        console.log(userData)
+    }
 
-        <label className="Label">
-          Email
-          <input
-            className="Input"
-            type="text"
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
-          />
-        </label>
+    return (
 
-        <button type="submit" className="SubmitButton">
-          Enviar
-        </button>
-      </form>
-    </div>
-  );
-};
+        <div className='container-Form'>
+            
+            <form onSubmit={handleConfirm} className='Form'>
+                <label className='Label-form'>
+                    Nombre
+                    <input  className='Input'
+                    type='text'
+                    value={name}
+                    onChange={({ target }) => setName(target.value)}>
+                    </input>
+                    
+                     </label>
+                <label className='Label-form'>
+                    Teléfono
+                    <input  className='Input'
+                    type='text'
+                    value={phone}
+                    onChange={({ target }) => setPhone(target.value)}>
+                    </input>
+                    
+                     </label>
+                <label className='Label'>
+                    Email
+                    <input  className='Input'
+                    type='text'
+                    value={email}
+                    onChange={({ target }) => setEmail(target.value)}>
+                    </input>                
+                     </label>
+                     <div className='Label-form'>
+                        <button type='submit' className='Button-Form'>Crear Orden</button>
+                     </div>
 
-export default CheckoutForm;
+            </form>
+            
+            
+             </div>
+    )
+}
+
+export default CheckoutForm
+
