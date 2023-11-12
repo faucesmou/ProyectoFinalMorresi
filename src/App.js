@@ -3,6 +3,7 @@ import './App.css';
 import CollapsibleExample from './components/NavBar'
 import ItemListContainer from './components/ItemListContainer'
 import  Cart  from './components/Cart';
+import  Checkout  from './components/Checkout';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { createContext, useState, useEffect } from "react";
@@ -91,8 +92,7 @@ function App() {
                   <Route path="/" element={<ItemListContainer /* products={productsData} */ />} />
                   <Route path="/category/:categoryId" element={<ItemListContainer />} />
                   <Route path="/cart" element={<Cart/>} />
-                {/*   <Route path="/category/tecnologia" element={<ItemListContainer  />} /> */}
-                  {/* <Route path="/hogar" element={<ItemListContainer  />} /> */}
+                  <Route path="/checkout" element={<Checkout/>} />
                   <Route path="/item/:id" element={<ItemDetailContainer products={productsData} />} />
                 </Routes>
                 </>)}
