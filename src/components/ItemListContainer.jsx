@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import Button from "react-bootstrap/Button";
 import Item2 from "./Item2";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../ThemeContext";
@@ -96,7 +97,15 @@ function ItemListContainer() {
           key={product.id}
         >
           <Item2 product={product} />
-          <BotonContador producto={product} />
+          {/* <BotonContador producto={product} /> */}
+          <Button
+            /* onClick={() => handleOndAdd(cantidad)} */
+            variant="dark"
+            type="submit"
+            style={{ fontSize: "10px", background: "#007bff", marginTop: "15px" }}
+          >
+            Agregar al carrito
+          </Button>
         </Link>
       ))}
       </div>
