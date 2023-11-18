@@ -52,7 +52,7 @@ const ItemDetailContainer = () => {
     return <div>Producto no encontrado</div>;
   } else {
     return (
-      <div className="container">
+      <div className="container" style={{ backgroundColor: "#f5f5f5", padding: "20px", marginTop: "20px"}} >
         <h2 className="product-title">{product.title}</h2>
         <h5>{product.description}</h5>
         {/* <p>Precio: ${product.price}</p> */}
@@ -65,6 +65,10 @@ const ItemDetailContainer = () => {
   }
 
 };
+
+/* background-color: #f5f5f5;
+padding: 20px;
+ */
 
 export default ItemDetailContainer;
 

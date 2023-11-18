@@ -29,6 +29,7 @@ function BotonContador({ producto }) {
       imagen: producto.image
     };
     addItem(productoAgregado, cantidad);
+    console.log("este es el cartState: -->", cartState2 )
   };
 
   const handleRemoveFromCart = () => {

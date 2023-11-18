@@ -14,7 +14,9 @@ const Item2 = ({ product }) => {
     >
       <div className="card-content">
         <h4 className="cart-subtitle">{product.title}</h4>
-        <a href={`/item/detail/${product.description}`} className="card-link">
+        <a
+          /* href={`/item/detail/${product.description}`} */ className="card-link"
+        >
           {/*  <figure className="card-img-top"> */}
           <div className="card-img-container">
             <img

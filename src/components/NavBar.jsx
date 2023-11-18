@@ -21,7 +21,7 @@ function CollapsibleExample() {
     >
       <Container>
         <NavLink to="/">
-          <Navbar.Brand>Equinox</Navbar.Brand>
+          <Navbar.Brand>Houdini</Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -40,7 +40,7 @@ function CollapsibleExample() {
               <NavDropdown.Item href="#action/3.3">Categorías</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Ropa para niños
+                Promociones
               </NavDropdown.Item>
             </NavDropdown>
             <NavLink  as={Link} to="/category/tecnologia">

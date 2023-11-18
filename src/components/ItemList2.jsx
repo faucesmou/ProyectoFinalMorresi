@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Item2 from "./Item2";
 import { Link } from "react-router-dom";
 
@@ -24,3 +24,4 @@ const ItemList2 = ({ products }) => {
 };
 
 export default ItemList2;
+ */

@@ -18,6 +18,25 @@ const Cart = () => {
     return total;
    }
 
+  // Función para agregar subtotal y total a cada producto en el carrito
+/* const updateCartWithSubtotalAndTotal = () => {
+  const updatedCart = cartState2.map((product) => ({
+    ...product,
+    subtotal: calculateSubtotal(product),
+  }));
+
+  const cartTotal = updatedCart.reduce((acc, product) => {
+    return acc + product.subtotal;
+  }, 0);
+
+  const cartWithTotal = updatedCart.map((product) => ({
+    ...product,
+    total: cartTotal,
+  }));
+
+  return cartWithTotal;
+}; */
+
   // Función para eliminar un producto del carrito
   const handleRemoveFromCart = (productId) => {
     removeItem(productId);
@@ -72,4 +91,6 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Cart 
+
+

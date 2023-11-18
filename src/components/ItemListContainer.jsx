@@ -6,10 +6,7 @@ import { ThemeContext } from "../ThemeContext";
 import BotonContador from "./ItemCount";
 /* import { CartContext2 } from "../context/cartContext"; */
 import { useParams } from "react-router-dom";
-import {  getDocs,
-  getFirestore,
-  collection,
-} from "firebase/firestore";
+import { getDocs, getFirestore, collection } from "firebase/firestore";
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]); // Usamos un estado local para almacenar los productos
@@ -78,36 +75,40 @@ function ItemListContainer() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    
     <div
       className=""
-    /*   style={{
+      /*   style={{
         background: themes[theme].background,
         color: themes[theme].color,
       }} */
     >
       <div>
-      <h2 className="cart-title">Mercado Pegoteado</h2>
-      <h3 className="cart-subtitle">Productos disponibles</h3>
+        <h2 className="cart-title" style={{ marginTop: "15px" }}>
+          Mercado de Houdini
+        </h2>
+        <h3 className="cart-subtitle">Productos disponibles</h3>
       </div>
-      <div className="item-list-container" >{products.map((product) => (
-        <Link
-          to={`/item/${product.id}`}
-          className="text-decoration-none"
-          key={product.id}
-        >
-          <Item2 product={product} />
-          {/* <BotonContador producto={product} /> */}
-          <Button
-            /* onClick={() => handleOndAdd(cantidad)} */
-            variant="dark"
-            type="submit"
-            style={{ fontSize: "10px", background: "#007bff", marginTop: "15px" }}
+      <div className="item-list-container">
+        {products.map((product) => (
+          <Link
+            to={`/item/${product.id}`}
+            className="text-decoration-none"
+            key={product.id}
           >
-            Agregar al carrito
-          </Button>
-        </Link>
-      ))}
+            <Item2 product={product} />
+            <Button
+              variant="dark"
+              type="submit"
+              style={{
+                fontSize: "10px",
+                background: "#007bff",
+                marginTop: "15px",
+              }}
+            >
+              Agregar al carrito
+            </Button>
+          </Link>
+        ))}
       </div>
     </div>
   );
@@ -115,8 +116,7 @@ function ItemListContainer() {
 
 export default ItemListContainer;
 
-
-//Intento de filtrar productos desde la URL hacia la base de datos: no funciona correctamente. 
+//Intento de filtrar productos desde la URL hacia la base de datos: no funciona correctamente.
 
 /*    ? query(collectionRef, where("category", "==", categoryId))
 : collectionRef;
@@ -200,6 +200,3 @@ setProducts(productsData); */
    
    fetchData();
  }, [0]); */
-
-
-
